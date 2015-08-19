@@ -1,0 +1,10 @@
+AllCops:
+  Exclude:
+    - 'bin/*'
+    - 'example/'
+
+Metrics/LineLength:
+  Max: 100
+
+Style/StringLiterals:
+  Enabled: false

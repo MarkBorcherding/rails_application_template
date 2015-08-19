@@ -1,0 +1,10 @@
+AllCops:
+  RunRailsCops: true
+  Exclude:
+    - 'bin/*'
+
+Metrics/LineLength:
+  Max: 130
+
+Style/Documentation:
+  Enabled: false
