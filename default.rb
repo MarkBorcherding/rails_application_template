@@ -1,10 +1,15 @@
 gem 'slim-rails'
 
+gem_group :development do
+  gem 'quiet_assets'
+end
+
 gem_group :development, :test do
   gem 'rspec-rails'
   gem 'rubocop', require: false
   gem 'scss_lint', require: false
   gem 'slim_lint', require: false
+  gem 'thin'
 end
 
 rakefile('rubocop.rake') do
