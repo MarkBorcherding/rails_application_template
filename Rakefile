@@ -3,5 +3,5 @@ task :clean do
 end
 
 task test: :clean do
-  system 'rails new example --template default.rb'
+  system 'rails new example --template default.rb --skip-bundle --skip-spring'
 end
