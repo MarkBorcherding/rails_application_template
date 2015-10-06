@@ -1,10 +1,16 @@
 gem 'slim-rails'
+gem 'lograge'
 
 gem_group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'meta_request'
   gem 'quiet_assets'
+  gem 'annotate'
 end
 
 gem_group :development, :test do
+  gem 'fuubar'
   gem 'rspec-rails'
   gem 'rubocop', require: false
   gem 'scss_lint', require: false
@@ -12,12 +18,27 @@ gem_group :development, :test do
   gem 'thin'
 end
 
+environment 'config.lograge.enabled = true', env: 'production'
+
 rakefile('rubocop.rake') do
   <<-TASK
 require 'rubocop/rake_task'
 RuboCop::RakeTask.new
   TASK
 end
+
+rakefile 'auto_annotate.rake' do
+  <<-TASK
+  if Rails.env.development?
+    Annotate.load_tasks
+  end
+  TASK
+end
+
+file '.rspec', <<-FILE
+--format Fuubar
+--color
+FILE
 
 file '.rubocop.yml', <<-FILE
 AllCops:
