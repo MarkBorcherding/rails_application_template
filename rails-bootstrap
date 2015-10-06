@@ -1,3 +1,4 @@
 #!/bin/bash
-
-rails new example -a https://raw.githubusercontent.com/MarkBorcherding/rails_application_template/master/default.rb $*
+PROJECT_NAME=$1
+shift 1
+rails new ${PROJECT_NAME} -a https://raw.githubusercontent.com/MarkBorcherding/rails_application_template/master/default.rb $*
